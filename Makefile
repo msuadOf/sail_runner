@@ -19,7 +19,7 @@ ifeq ($(wildcard $(SAILRISCV_DIR)/README.md),)
 endif
 
 ifeq ($(wildcard $(ISLA_DIR)/README.md),)
-  $(shell git clone git@github.com:rems-project/isla.git $(ISLA_DIR))
+  $(shell git clone git@github.com:msuadOf/isla.git $(ISLA_DIR))
 endif
 
 ifeq ($(wildcard $(ISLASNAPSHOTS_DIR)/README.md),)
