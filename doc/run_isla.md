@@ -29,6 +29,13 @@
 使用`isla-footprint`项目
 
 ```shell
+cd workdir/isla-snapshots/
+tar -xvf ./armv9p4.ir.gz
+
+sudo apt install libz3-dev gcc-aarch64-linux-gnu
+```
+
+```shell
 target/release/isla-footprint -A ../isla-snapshots/armv9p4.ir -C configs/armv9p4.toml -i "add x0, x1, #3" -s | tee isla-footprint.out
 ```
 
