@@ -44,6 +44,9 @@ sail:
 	sudo apt-get install -y build-essential libgmp-dev z3 pkg-config \
 		&& opam install sail
 
+init-isla:
+	cd workdir/isla-snapshots && gzip -d ./*.ir.gz
+
 empty:
 	echo "Nothing to do"
 
