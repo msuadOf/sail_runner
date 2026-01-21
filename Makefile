@@ -4,13 +4,17 @@ SAIL=sail
 SAILRISCV=sail-riscv
 SAILARM=sail-arm
 ISLA=isla
+ISLA1=isla1
 ISLASNAPSHOTS=isla-snapshots
+SAILOR_ARTIFACT=sailor_artifact
 
 SAIL_DIR=$(WORK_DIR)/$(SAIL)
 SAILRISCV_DIR=$(WORK_DIR)/$(SAILRISCV)
 SAILARM_DIR=$(WORK_DIR)/$(SAILARM)
 ISLA_DIR=$(WORK_DIR)/$(ISLA)
+ISLA1_DIR=$(WORK_DIR)/$(ISLA1)
 ISLASNAPSHOTS_DIR=$(WORK_DIR)/$(ISLASNAPSHOTS)
+SAILOR_ARTIFACT_DIR=$(WORK_DIR)/$(SAILOR_ARTIFACT)
 
 ifeq ($(wildcard $(SAIL_DIR)/README.md),)
   $(shell git clone git@github.com:rems-project/sail.git $(SAIL_DIR))
@@ -21,7 +25,11 @@ ifeq ($(wildcard $(SAILRISCV_DIR)/README.md),)
 endif
 
 ifeq ($(wildcard $(ISLA_DIR)/README.md),)
-  $(shell git clone git@github.com:msuadOf/isla.git $(ISLA_DIR))
+  $(shell git clone git@github.com:rems-project/isla.git $(ISLA_DIR))
+endif
+
+ifeq ($(wildcard $(ISLA1_DIR)/README.md),)
+  $(shell git clone git@github.com:ariscv/isla.git $(ISLA1_DIR))
 endif
 
 ifeq ($(wildcard $(ISLASNAPSHOTS_DIR)/README.md),)
@@ -30,6 +38,10 @@ endif
 
 ifeq ($(wildcard $(SAILARM_DIR)/README.md),)
   $(shell git clone git@github.com:rems-project/sail-arm.git $(SAILARM_DIR))
+endif
+
+ifeq ($(wildcard $(SAILOR_ARTIFACT_DIR)/README.md),)
+  $(shell git clone git@github.com:neeluk7/sailor_artifact.git $(SAILOR_ARTIFACT_DIR) --recursive)
 endif
 
 all: empty
