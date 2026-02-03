@@ -11,6 +11,7 @@ RISCV_UNIFIED_DB=riscv-unified-db
 ISLA_TESTGEN=isla-testgen
 ISLA_TESTGEN_SAIL=isla-testgen-sail
 ISLA_TESTGEN_CHERIoT=isla-testgen-cheriot-sail
+ISLA_TESTGEN_RANDOM_GENERATOR=isla-testgen-sail-riscv-test-generation
 
 SAIL_DIR=$(WORK_DIR)/$(SAIL)
 SAILRISCV_DIR=$(WORK_DIR)/$(SAILRISCV)
@@ -23,6 +24,7 @@ RISCV_UNIFIED_DB_DIR=$(WORK_DIR)/$(RISCV_UNIFIED_DB)
 ISLA_TESTGEN_DIR=$(WORK_DIR)/$(ISLA_TESTGEN)
 ISLA_TESTGEN_SAIL_DIR=$(WORK_DIR)/$(ISLA_TESTGEN_SAIL)
 ISLA_TESTGEN_CHERIoT_DIR=$(WORK_DIR)/$(ISLA_TESTGEN_CHERIoT)
+ISLA_TESTGEN_RANDOM_GENERATOR_DIR=$(WORK_DIR)/$(ISLA_TESTGEN_RANDOM_GENERATOR)
 
 ifeq ($(wildcard $(SAIL_DIR)/README.md),)
   $(shell git clone git@github.com:rems-project/sail.git $(SAIL_DIR))
@@ -66,6 +68,10 @@ endif
 
 ifeq ($(wildcard $(ISLA_TESTGEN_CHERIoT_DIR)/README.md),)
   $(shell git clone git@github.com:bacam/2025-lowrisc-cheriot-sail.git $(ISLA_TESTGEN_CHERIoT_DIR))
+endif
+
+ifeq ($(wildcard $(ISLA_TESTGEN_RANDOM_GENERATOR_DIR)/README.md),)
+  $(shell git clone git@github.com:rems-project/sail-riscv-test-generation.git $(ISLA_TESTGEN_RANDOM_GENERATOR_DIR))
 endif
 
 all: empty
