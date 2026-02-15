@@ -1,5 +1,9 @@
 WORK_DIR=workdir
 
+GITHUB_URL_SSH=git@github.com:
+GITHUB_URL_HTTP=https://github.com/
+GITHUB_URL=$(GITHUB_URL_HTTP)
+
 SAIL=sail
 SAILRISCV=sail-riscv
 SAILARM=sail-arm
@@ -27,51 +31,51 @@ ISLA_TESTGEN_CHERIoT_DIR=$(WORK_DIR)/$(ISLA_TESTGEN_CHERIoT)
 ISLA_TESTGEN_RANDOM_GENERATOR_DIR=$(WORK_DIR)/$(ISLA_TESTGEN_RANDOM_GENERATOR)
 
 ifeq ($(wildcard $(SAIL_DIR)/README.md),)
-  $(shell git clone git@github.com:rems-project/sail.git $(SAIL_DIR))
+  $(shell git clone $(GITHUB_URL)rems-project/sail.git $(SAIL_DIR))
 endif
 
 ifeq ($(wildcard $(SAILRISCV_DIR)/README.md),)
-  $(shell git clone git@github.com:riscv/sail-riscv.git $(SAILRISCV_DIR))
+  $(shell git clone $(GITHUB_URL)riscv/sail-riscv.git $(SAILRISCV_DIR))
 endif
 
 ifeq ($(wildcard $(ISLA_DIR)/README.md),)
-  $(shell git clone git@github.com:rems-project/isla.git $(ISLA_DIR))
+  $(shell git clone $(GITHUB_URL)rems-project/isla.git $(ISLA_DIR))
 endif
 
 ifeq ($(wildcard $(ISLA1_DIR)/README.md),)
-  $(shell git clone git@github.com:ariscv/isla.git $(ISLA1_DIR))
+  $(shell git clone $(GITHUB_URL)ariscv/isla.git $(ISLA1_DIR))
 endif
 
 ifeq ($(wildcard $(ISLASNAPSHOTS_DIR)/README.md),)
-  $(shell git clone git@github.com:rems-project/isla-snapshots.git $(ISLASNAPSHOTS_DIR))
+  $(shell git clone $(GITHUB_URL)rems-project/isla-snapshots.git $(ISLASNAPSHOTS_DIR))
 endif
 
 ifeq ($(wildcard $(SAILARM_DIR)/README.md),)
-  $(shell git clone git@github.com:rems-project/sail-arm.git $(SAILARM_DIR))
+  $(shell git clone $(GITHUB_URL)rems-project/sail-arm.git $(SAILARM_DIR))
 endif
 
 ifeq ($(wildcard $(SAILOR_ARTIFACT_DIR)/README.md),)
-  $(shell git clone git@github.com:neeluk7/sailor_artifact.git $(SAILOR_ARTIFACT_DIR) --recursive)
+  $(shell git clone $(GITHUB_URL)neeluk7/sailor_artifact.git $(SAILOR_ARTIFACT_DIR) --recursive)
 endif
 
 ifeq ($(wildcard $(RISCV_UNIFIED_DB_DIR)/README.md),)
-  $(shell git clone git@github.com:riscv-software-src/riscv-unified-db.git $(RISCV_UNIFIED_DB_DIR))
+  $(shell git clone $(GITHUB_URL)riscv-software-src/riscv-unified-db.git $(RISCV_UNIFIED_DB_DIR))
 endif
 
 ifeq ($(wildcard $(ISLA_TESTGEN_DIR)/README.md),)
-  $(shell git clone --recurse-submodules git@github.com:rems-project/isla-testgen.git $(ISLA_TESTGEN_DIR))
+  $(shell git clone --recurse-submodules $(GITHUB_URL)rems-project/isla-testgen.git $(ISLA_TESTGEN_DIR))
 endif
 
 ifeq ($(wildcard $(ISLA_TESTGEN_SAIL_DIR)/README.md),)
-  $(shell git clone git@github.com:rems-project/sail.git $(ISLA_TESTGEN_SAIL_DIR) && cd $(ISLA_TESTGEN_SAIL_DIR) && git checkout bfdeb8cc)
+  $(shell git clone $(GITHUB_URL)rems-project/sail.git $(ISLA_TESTGEN_SAIL_DIR) && cd $(ISLA_TESTGEN_SAIL_DIR) && git checkout bfdeb8cc)
 endif
 
 ifeq ($(wildcard $(ISLA_TESTGEN_CHERIoT_DIR)/README.md),)
-  $(shell git clone git@github.com:bacam/2025-lowrisc-cheriot-sail.git $(ISLA_TESTGEN_CHERIoT_DIR))
+  $(shell git clone $(GITHUB_URL)bacam/2025-lowrisc-cheriot-sail.git $(ISLA_TESTGEN_CHERIoT_DIR))
 endif
 
 ifeq ($(wildcard $(ISLA_TESTGEN_RANDOM_GENERATOR_DIR)/README.md),)
-  $(shell git clone git@github.com:rems-project/sail-riscv-test-generation.git $(ISLA_TESTGEN_RANDOM_GENERATOR_DIR))
+  $(shell git clone $(GITHUB_URL)rems-project/sail-riscv-test-generation.git $(ISLA_TESTGEN_RANDOM_GENERATOR_DIR))
 endif
 
 all: empty
